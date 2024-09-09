@@ -1,4 +1,10 @@
 VermilionCity_Script:
+	; Reset the cans
+	ResetEvent EVENT_1ST_LOCK_OPENED
+	call Random
+	and $e
+	ld [wFirstLockTrashCanIndex], a
+	
 	call EnableAutoTextBoxDrawing
 	ld hl, wCurrentMapScriptFlags
 	bit 6, [hl]
