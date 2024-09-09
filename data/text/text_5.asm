@@ -102,3 +102,18 @@ _BoxIsFullText::
 	para "Change the BOX at"
 	line "a #MON CENTER!"
 	done
+
+_SortItemsText::
+	text "Would you like to"
+	next "sort items?"
+	done
+
+_SortComplete::
+	text "Sorting is"
+	next "Complete."
+	prompt
+
+_NothingToSort::
+	text "There is nothing"
+	next "to sort."
+	prompt

@@ -743,9 +743,7 @@ _VermilionGymTrashSuccessText3::
 
 _VermilionGymTrashFailText::
 	text "Nope! There's"
-	line "only trash here."
-	cont "Hey! The electric"
-	cont "locks were reset!@"
+	line "only trash here.@"
 	text_end
 
 _FoundHiddenItemText::
@@ -1211,8 +1209,8 @@ _GainedText::
 	text_end
 
 _WithExpAllText::
-	text "with EXP.ALL,"
-	cont "@"
+	text "Party gained"
+	next "@"
 	text_end
 
 _BoostedText::
