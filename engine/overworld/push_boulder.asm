@@ -6,19 +6,19 @@ TryPushingBoulder::
 	bit BIT_BOULDER_DUST, a
 	ret nz
 	xor a
-	ldh [hSpriteIndexOrTextID], a
+	ldh [hSpriteIndex], a
 	call IsSpriteInFrontOfPlayer
-	ldh a, [hSpriteIndexOrTextID]
+	ldh a, [hSpriteIndex]
 	ld [wBoulderSpriteIndex], a
 	and a
 	jp z, ResetBoulderPushFlags
 	ld hl, wSpritePlayerStateData1MovementStatus
 	ld d, $0
-	ldh a, [hSpriteIndexOrTextID]
+	ldh a, [hSpriteIndex]
 	swap a
 	ld e, a
 	add hl, de
-	res 7, [hl]
+	res BIT_FACE_PLAYER, [hl]
 	call GetSpriteMovementByte2Pointer
 	ld a, [hl]
 	cp BOULDER_MOVEMENT_BYTE_2
@@ -28,7 +28,7 @@ TryPushingBoulder::
 	set BIT_TRIED_PUSH_BOULDER, [hl]
 	ret z ; the player must try pushing twice before the boulder will move
 	ldh a, [hJoyHeld]
-	and D_RIGHT | D_LEFT | D_UP | D_DOWN
+	and PAD_CTRL_PAD
 	ret z
 	predef CheckForCollisionWhenPushingBoulder
 	ld a, [wTileInFrontOfBoulderAndBoulderCollisionResult]
@@ -44,22 +44,22 @@ TryPushingBoulder::
 	cp SPRITE_FACING_RIGHT
 	jr z, .pushBoulderRight
 .pushBoulderDown
-	bit BIT_D_DOWN, b
+	bit B_PAD_DOWN, b
 	ret z
 	ld de, PushBoulderDownMovementData
 	jr .done
 .pushBoulderUp
-	bit BIT_D_UP, b
+	bit B_PAD_UP, b
 	ret z
 	ld de, PushBoulderUpMovementData
 	jr .done
 .pushBoulderLeft
-	bit BIT_D_LEFT, b
+	bit B_PAD_LEFT, b
 	ret z
 	ld de, PushBoulderLeftMovementData
 	jr .done
 .pushBoulderRight
-	bit BIT_D_RIGHT, b
+	bit B_PAD_RIGHT, b
 	ret z
 	ld de, PushBoulderRightMovementData
 .done

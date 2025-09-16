@@ -50,7 +50,7 @@ HealParty:
 	push bc
 	ld b, a
 	ld a, [hl]
-	and $c0
+	and PP_UP_MASK
 	add b
 	ld [hl], a
 	pop bc
@@ -84,7 +84,7 @@ HealParty:
 .done
 	xor a
 	ld [wWhichPokemon], a
-	ld [wd11e], a
+	ld [wUsingPPUp], a
 
 	ld a, [wPartyCount]
 	ld b, a

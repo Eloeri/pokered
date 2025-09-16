@@ -30,27 +30,25 @@ TextScript_ItemStoragePC::
 	call SaveScreenTilesToBuffer2
 	ld b, BANK(PlayerPC)
 	ld hl, PlayerPC
-	jr bankswitchAndContinue
+	jr BankswitchAndContinue
 
 TextScript_BillsPC::
 	call SaveScreenTilesToBuffer2
 	ld b, BANK(BillsPC_)
 	ld hl, BillsPC_
-	jr bankswitchAndContinue
+	jr BankswitchAndContinue
 
 TextScript_GameCornerPrizeMenu::
-; XXX find a better name for this function
-; special_F7
 	ld b, BANK(CeladonPrizeMenu)
 	ld hl, CeladonPrizeMenu
-bankswitchAndContinue::
+BankswitchAndContinue::
 	call Bankswitch
 	jp HoldTextDisplayOpen        ; continue to main text-engine function
 
 TextScript_PokemonCenterPC::
 	ld b, BANK(ActivatePC)
 	ld hl, ActivatePC
-	jr bankswitchAndContinue
+	jr BankswitchAndContinue
 
 StartSimulatingJoypadStates::
 	xor a
@@ -71,7 +69,7 @@ IsItemInBag::
 	ret
 
 DisplayPokedex::
-	ld [wd11e], a
+	ld [wPokedexNum], a
 	farjp _DisplayPokedex
 
 SetSpriteFacingDirectionAndDelay::
@@ -219,15 +217,15 @@ SetSpriteMovementBytesToFE::
 SetSpriteMovementBytesToFF::
 	push hl
 	call GetSpriteMovementByte1Pointer
-	ld [hl], $FF
+	ld [hl], STAY
 	call GetSpriteMovementByte2Pointer
-	ld [hl], $FF ; prevent person from walking?
+	ld [hl], NONE
 	pop hl
 	ret
 
 ; returns the sprite movement byte 1 pointer for sprite [hSpriteIndex] in hl
 GetSpriteMovementByte1Pointer::
-	ld h, $C2
+	ld h, HIGH(wSpriteStateData2)
 	ldh a, [hSpriteIndex]
 	swap a
 	add 6

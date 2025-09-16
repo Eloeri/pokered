@@ -3,9 +3,9 @@ DisplayTextIDInit::
 	xor a
 	ld [wListMenuID], a
 	ld a, [wAutoTextBoxDrawingControl]
-	bit 0, a
+	bit BIT_NO_AUTO_TEXT_BOX, a
 	jr nz, .skipDrawingTextBoxBorder
-	ldh a, [hSpriteIndexOrTextID] ; text ID (or sprite ID)
+	ldh a, [hTextID]
 	and a
 	jr nz, .notStartMenu
 ; if text ID is 0 (i.e. the start menu)
@@ -31,7 +31,7 @@ DisplayTextIDInit::
 	call TextBoxBorder
 .skipDrawingTextBoxBorder
 	ld hl, wFontLoaded
-	set 0, [hl]
+	set BIT_FONT_LOADED, [hl]
 	ld hl, wMiscFlags
 	bit BIT_NO_SPRITE_UPDATES, [hl]
 	res BIT_NO_SPRITE_UPDATES, [hl]
@@ -69,7 +69,7 @@ DisplayTextIDInit::
 	add hl, de
 	dec c
 	jr nz, .spriteStandStillLoop
-	ld b, $9c ; window background address
+	ld b, HIGH(vBGMap1)
 	call CopyScreenTileBufferToVRAM ; transfer background in WRAM to VRAM
 	xor a
 	ldh [hWY], a ; put the window on the screen

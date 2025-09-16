@@ -31,10 +31,10 @@ ENDC
 	ld hl, PewterCityPlayerLeavingEastCoords
 	call ArePlayerCoordsInArray
 	ret nc
-	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, TEXT_PEWTERCITY_YOUNGSTER
-	ldh [hSpriteIndexOrTextID], a
+	ldh [hTextID], a
 	jp DisplayTextID
 
 PewterCityPlayerLeavingEastCoords:
@@ -60,7 +60,7 @@ PewterCitySuperNerd1ShowsPlayerMuseumScript:
 	ld hl, wMiscFlags
 	set BIT_NO_SPRITE_UPDATES, [hl]
 	ld a, TEXT_PEWTERCITY_SUPER_NERD1_ITS_RIGHT_HERE
-	ldh [hSpriteIndexOrTextID], a
+	ldh [hTextID], a
 	call DisplayTextID
 	ld a, $3c
 	ldh [hSpriteScreenYCoord], a
@@ -128,11 +128,11 @@ PewterCityYoungsterShowsPlayerGymScript:
 	ld hl, wMiscFlags
 	set BIT_NO_SPRITE_UPDATES, [hl]
 	ld a, TEXT_PEWTERCITY_YOUNGSTER_GO_TAKE_ON_BROCK
-	ldh [hSpriteIndexOrTextID], a
+	ldh [hTextID], a
 	call DisplayTextID
 	ld a, $3c
 	ldh [hSpriteScreenYCoord], a
-	ld a, $40
+	ld a, $40 ; BUG: should load $50, using $40 causes sprite misalignment
 	ldh [hSpriteScreenXCoord], a
 	ld a, 22
 	ldh [hSpriteMapYCoord], a

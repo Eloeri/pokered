@@ -99,12 +99,12 @@ LoadFlippedFrontSpriteByMonIndex::
 
 LoadFrontSpriteByMonIndex::
 	push hl
-	ld a, [wd11e]
+	ld a, [wPokedexNum]
 	push af
 	ld a, [wCurPartySpecies]
-	ld [wd11e], a
+	ld [wPokedexNum], a
 	predef IndexToPokedex
-	ld hl, wd11e
+	ld hl, wPokedexNum
 	ld a, [hl]
 	pop bc
 	ld [hl], b
@@ -114,7 +114,11 @@ LoadFrontSpriteByMonIndex::
 	cp NUM_POKEMON + 1
 	jr c, .validDexNumber   ; dex >#151 invalid
 .invalidDexNumber
-	ld a, RHYDON ; $1
+	; This is the so-called "Rhydon trap" or "Rhydon glitch"
+	; to fail-safe invalid dex numbers
+	; (see https://glitchcity.wiki/wiki/Rhydon_trap
+	; or https://bulbapedia.bulbagarden.net/wiki/Rhydon_glitch)
+	ld a, RHYDON
 	ld [wCurPartySpecies], a
 	ret
 .validDexNumber
@@ -126,7 +130,7 @@ LoadFrontSpriteByMonIndex::
 	push af
 	ld a, BANK(CopyUncompressedPicToHL)
 	ldh [hLoadedROMBank], a
-	ld [MBC1RomBank], a
+	ld [rROMB], a
 	xor a
 	ldh [hStartTileID], a
 	call CopyUncompressedPicToHL
@@ -134,7 +138,7 @@ LoadFrontSpriteByMonIndex::
 	ld [wSpriteFlipped], a
 	pop af
 	ldh [hLoadedROMBank], a
-	ld [MBC1RomBank], a
+	ld [rROMB], a
 	ret
 
 
@@ -222,11 +226,11 @@ PartyMenuInit::
 	ld [hli], a ; max menu item ID
 	ld a, [wForcePlayerToChooseMon]
 	and a
-	ld a, A_BUTTON | B_BUTTON
+	ld a, PAD_A | PAD_B
 	jr z, .next
 	xor a
 	ld [wForcePlayerToChooseMon], a
-	inc a ; a = A_BUTTON
+	inc a ; a = PAD_A
 .next
 	ld [hli], a ; menu watched keys
 	pop af
@@ -252,7 +256,7 @@ HandlePartyMenuInput::
 	jp nz, .swappingPokemon
 	pop af
 	ldh [hTileAnimations], a
-	bit 1, b
+	bit B_PAD_B, b
 	jr nz, .noPokemonChosen
 	ld a, [wPartyCount]
 	and a
@@ -274,7 +278,7 @@ HandlePartyMenuInput::
 	scf
 	ret
 .swappingPokemon
-	bit BIT_B_BUTTON, b
+	bit B_PAD_B, b
 	jr z, .handleSwap ; if not, handle swapping the pokemon
 .cancelSwap ; if the B button was pressed
 	farcall ErasePartyMenuCursors
@@ -355,8 +359,8 @@ PrintLevelFull::
 	ld a, [wLoadedMonLevel] ; level
 
 PrintLevelCommon::
-	ld [wd11e], a
-	ld de, wd11e
+	ld [wTempByteValue], a
+	ld de, wTempByteValue
 	ld b, LEFT_ALIGN | 1 ; 1 byte
 	jp PrintNumber
 
@@ -371,20 +375,20 @@ GetwMoves::
 
 ; copies the base stat data of a pokemon to wMonHeader
 ; INPUT:
-; [wd0b5] = pokemon ID
+; [wCurSpecies] = pokemon ID
 GetMonHeader::
 	ldh a, [hLoadedROMBank]
 	push af
 	ld a, BANK(BaseStats)
 	ldh [hLoadedROMBank], a
-	ld [MBC1RomBank], a
+	ld [rROMB], a
 	push bc
 	push de
 	push hl
-	ld a, [wd11e]
+	ld a, [wPokedexNum]
 	push af
-	ld a, [wd0b5]
-	ld [wd11e], a
+	ld a, [wCurSpecies]
+	ld [wPokedexNum], a
 	ld de, FossilKabutopsPic
 	ld b, $66 ; size of Kabutops fossil and Ghost sprites
 	cp FOSSIL_KABUTOPS ; Kabutops fossil
@@ -398,8 +402,8 @@ GetMonHeader::
 	jr z, .specialID
 	cp MEW
 	jr z, .mew
-	predef IndexToPokedex   ; convert pokemon ID in [wd11e] to pokedex number
-	ld a, [wd11e]
+	predef IndexToPokedex
+	ld a, [wPokedexNum]
 	dec a
 	ld bc, BASE_DATA_SIZE
 	ld hl, BaseStats
@@ -423,16 +427,16 @@ GetMonHeader::
 	ld a, BANK(MewBaseStats)
 	call FarCopyData
 .done
-	ld a, [wd0b5]
+	ld a, [wCurSpecies]
 	ld [wMonHIndex], a
 	pop af
-	ld [wd11e], a
+	ld [wPokedexNum], a
 	pop hl
 	pop de
 	pop bc
 	pop af
 	ldh [hLoadedROMBank], a
-	ld [MBC1RomBank], a
+	ld [rROMB], a
 	ret
 
 ; copy party pokemon's name to wNameBuffer

@@ -9,7 +9,7 @@ AskName:
 	ld c, 11
 	call z, ClearScreenArea ; only if in wild battle
 	ld a, [wCurPartySpecies]
-	ld [wd11e], a
+	ld [wNamedObjectIndex], a
 	call GetMonName
 	ld hl, DoYouWantToNicknameText
 	call PrintText
@@ -217,11 +217,11 @@ DisplayNamingScreen:
 .didNotPressED
 	ld a, [wCurrentMenuItem]
 	cp $6 ; case switch row
-	jr nz, .didNotPressCaseSwtich
+	jr nz, .didNotPressCaseSwitch
 	ld a, [wTopMenuItemX]
 	cp $1 ; case switch column
 	jr z, .pressedA_changedCase
-.didNotPressCaseSwtich
+.didNotPressCaseSwitch
 	ld hl, wMenuCursorLocation
 	ld a, [hli]
 	ld h, [hl]
@@ -462,7 +462,7 @@ PrintNamingText:
 	push af
 	farcall WriteMonPartySpriteOAMBySpecies
 	pop af
-	ld [wd11e], a
+	ld [wNamedObjectIndex], a
 	call GetMonName
 	hlcoord 4, 1
 	call PlaceString

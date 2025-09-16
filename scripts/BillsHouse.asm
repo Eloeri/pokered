@@ -62,7 +62,7 @@ BillsHousePokemonEntersMachineScript:
 BillsHouseBillExitsMachineScript:
 	CheckEvent EVENT_USED_CELL_SEPARATOR_ON_BILL
 	ret z
-	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, BILLSHOUSE_BILL1
 	ld [wSpriteIndex], a
@@ -110,7 +110,7 @@ BillsHouseCleanupScript:
 
 BillsHousePCScript:
 	ld a, TEXT_BILLSHOUSE_ACTIVATE_PC
-	ldh [hSpriteIndexOrTextID], a
+	ldh [hTextID], a
 	call DisplayTextID
 	ld a, SCRIPT_BILLSHOUSE_DEFAULT
 	ld [wBillsHouseCurScript], a

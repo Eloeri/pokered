@@ -51,7 +51,7 @@ ENDC
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
 	ld a, TEXT_POKEMONTOWER2F_RIVAL
-	ldh [hSpriteIndexOrTextID], a
+	ldh [hTextID], a
 	call DisplayTextID
 	xor a
 	ldh [hJoyHeld], a
@@ -67,11 +67,11 @@ PokemonTower2FDefeatedRivalScript:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, PokemonTower2FResetRivalEncounter
-	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	SetEvent EVENT_BEAT_POKEMON_TOWER_RIVAL
 	ld a, TEXT_POKEMONTOWER2F_RIVAL
-	ldh [hSpriteIndexOrTextID], a
+	ldh [hTextID], a
 	call DisplayTextID
 	ld de, PokemonTower2FRivalDownThenRightMovement
 	CheckEvent EVENT_POKEMON_TOWER_RIVAL_ON_LEFT

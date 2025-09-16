@@ -10,13 +10,13 @@ NamePointers::
 
 GetName::
 ; arguments:
-; [wd0b5] = which name
+; [wNameListIndex] = which name
 ; [wNameListType] = which list
 ; [wPredefBank] = bank of list
 ;
 ; returns pointer to name in de
-	ld a, [wd0b5]
-	ld [wd11e], a
+	ld a, [wNameListIndex]
+	ld [wNamedObjectIndex], a
 
 	; TM names are separate from item names.
 	; BUG: This applies to all names instead of just items.
@@ -48,7 +48,7 @@ GetName::
 	; 2-7 = other names
 	ld a, [wPredefBank]
 	ldh [hLoadedROMBank], a
-	ld [MBC1RomBank], a
+	ld [rROMB], a
 	ld a, [wNameListType]
 	dec a
 	add a
@@ -67,7 +67,7 @@ GetName::
 	ld h, a
 	ldh a, [hSwapTemp + 1]
 	ld l, a
-	ld a, [wd0b5]
+	ld a, [wNameListIndex]
 	ld b, a ; wanted entry
 	ld c, 0 ; entry counter
 .nextName
@@ -96,5 +96,5 @@ GetName::
 	pop hl
 	pop af
 	ldh [hLoadedROMBank], a
-	ld [MBC1RomBank], a
+	ld [rROMB], a
 	ret

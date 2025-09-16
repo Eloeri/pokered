@@ -10,8 +10,8 @@ SilphCo7F_Script:
 
 SilphCo7F_GateCallbackScript:
 	ld hl, wCurrentMapScriptFlags
-	bit 5, [hl]
-	res 5, [hl]
+	bit BIT_CUR_MAP_LOADED_1, [hl]
+	res BIT_CUR_MAP_LOADED_1, [hl]
 	ret z
 	ld hl, .GateCoordinates
 	call SilphCo7F_SetCardKeyDoorYScript
@@ -127,7 +127,7 @@ SilphCo7FDefaultScript:
 	jp nc, CheckFightingMapTrainers
 	xor a
 	ldh [hJoyHeld], a
-	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, PLAYER_DIR_DOWN
 	ld [wPlayerMovingDirection], a
@@ -138,7 +138,7 @@ SilphCo7FDefaultScript:
 	ld a, MUSIC_MEET_RIVAL
 	call PlayMusic
 	ld a, TEXT_SILPHCO7F_RIVAL
-	ldh [hSpriteIndexOrTextID], a
+	ldh [hTextID], a
 	call DisplayTextID
 	ld a, SILPHCO7F_RIVAL
 	ldh [hSpriteIndex], a
@@ -175,7 +175,7 @@ SilphCo7FRivalStartBattleScript:
 	xor a
 	ld [wJoyIgnore], a
 	ld a, TEXT_SILPHCO7F_RIVAL_WAITED_HERE
-	ldh [hSpriteIndexOrTextID], a
+	ldh [hTextID], a
 	call DisplayTextID
 	call Delay3
 	ld hl, wStatusFlags3
@@ -207,7 +207,7 @@ SilphCo7FRivalAfterBattleScript:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, SilphCo7FSetDefaultScript
-	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	SetEvent EVENT_BEAT_SILPH_CO_RIVAL
 	ld a, PLAYER_DIR_DOWN
@@ -218,7 +218,7 @@ SilphCo7FRivalAfterBattleScript:
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
 	ld a, TEXT_SILPHCO7F_RIVAL_GOOD_LUCK_TO_YOU
-	ldh [hSpriteIndexOrTextID], a
+	ldh [hTextID], a
 	call DisplayTextID
 	ld a, SFX_STOP_ALL_MUSIC
 	ld [wNewSoundID], a
@@ -310,7 +310,7 @@ SilphCo7FSilphWorkerM1Text:
 	lb bc, LAPRAS, 15
 	call GivePokemon
 	jr nc, .done
-	ld a, [wSimulatedJoypadStatesEnd]
+	ld a, [wAddedToParty]
 	and a
 	call z, WaitForTextScrollButtonPress
 	call EnableAutoTextBoxDrawing

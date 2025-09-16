@@ -10,8 +10,8 @@ SilphCo11F_Script:
 
 SilphCo11FGateCallbackScript:
 	ld hl, wCurrentMapScriptFlags
-	bit 5, [hl]
-	res 5, [hl]
+	bit BIT_CUR_MAP_LOADED_1, [hl]
+	res BIT_CUR_MAP_LOADED_1, [hl]
 	ret z
 	ld hl, SilphCo11GateCoords
 	call SilphCo11F_SetCardKeyDoorYScript
@@ -173,10 +173,10 @@ SilphCo11FDefaultScript:
 	ld [wSavedCoordIndex], a
 	xor a
 	ldh [hJoyHeld], a
-	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, TEXT_SILPHCO11F_GIOVANNI
-	ldh [hSpriteIndexOrTextID], a
+	ldh [hTextID], a
 	call DisplayTextID
 	ld a, SILPHCO11F_GIOVANNI
 	ldh [hSpriteIndex], a
@@ -220,10 +220,10 @@ SilphCo11FGiovanniAfterBattleScript:
 	ld b, SPRITE_FACING_DOWN
 .continue
 	call SilphCo11FSetPlayerAndSpriteFacingDirectionScript
-	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, TEXT_SILPHCO11F_GIOVANNI_YOU_RUINED_OUR_PLANS
-	ldh [hSpriteIndexOrTextID], a
+	ldh [hTextID], a
 	call DisplayTextID
 	call GBFadeOutToBlack
 	call SilphCo11FTeamRocketLeavesScript

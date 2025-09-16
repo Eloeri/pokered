@@ -26,7 +26,7 @@ PokemonTower5FDefaultScript:
 	ret nz
 	xor a
 	ldh [hJoyHeld], a
-	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld hl, wStatusFlags4
 	set BIT_NO_BATTLES, [hl]
@@ -36,7 +36,7 @@ PokemonTower5FDefaultScript:
 	call Delay3
 	call GBFadeInFromWhite
 	ld a, TEXT_POKEMONTOWER5F_PURIFIEDZONE
-	ldh [hSpriteIndexOrTextID], a
+	ldh [hTextID], a
 	call DisplayTextID
 	xor a
 	ld [wJoyIgnore], a

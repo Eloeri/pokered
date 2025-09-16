@@ -42,7 +42,7 @@ SSAnne2FDefaultScript:
 	call SetSpriteMovementBytesToFF
 	xor a
 	ldh [hJoyHeld], a
-	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ldh a, [hSavedCoordIndex]
 	cp $2
@@ -94,7 +94,7 @@ SSAnne2FRivalStartBattleScript:
 	xor a
 	ld [wJoyIgnore], a
 	ld a, TEXT_SSANNE2F_RIVAL
-	ldh [hSpriteIndexOrTextID], a
+	ldh [hTextID], a
 	call DisplayTextID
 	call Delay3
 	ld a, OPP_RIVAL2
@@ -126,10 +126,10 @@ SSAnne2FRivalAfterBattleScript:
 	cp $ff
 	jp z, SSAnne2FResetScripts
 	call SSAnne2FSetFacingDirectionScript
-	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, TEXT_SSANNE2F_RIVAL_CUT_MASTER
-	ldh [hSpriteIndexOrTextID], a
+	ldh [hTextID], a
 	call DisplayTextID
 	ld a, SSANNE2F_RIVAL
 	ldh [hSpriteIndex], a

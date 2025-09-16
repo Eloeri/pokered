@@ -10,7 +10,7 @@ Route5Gate_ScriptPointers:
 	dw_const Route5GatePlayerMovingScript, SCRIPT_ROUTE5GATE_PLAYER_MOVING
 
 Route5GateMovePlayerUpScript:
-	ld a, D_UP
+	ld a, PAD_UP
 	ld [wSimulatedJoypadStatesEnd], a
 	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a
@@ -32,7 +32,7 @@ Route5GateDefaultScript:
 	and a
 	jr nz, .have_drink
 	ld a, TEXT_ROUTE5GATE_GUARD_GEE_IM_THIRSTY
-	ldh [hSpriteIndexOrTextID], a
+	ldh [hTextID], a
 	call DisplayTextID
 	call Route5GateMovePlayerUpScript
 	ld a, SCRIPT_ROUTE5GATE_PLAYER_MOVING
@@ -40,7 +40,7 @@ Route5GateDefaultScript:
 	ret
 .have_drink
 	ld a, TEXT_ROUTE5GATE_GUARD_GIVE_DRINK
-	ldh [hSpriteIndexOrTextID], a
+	ldh [hTextID], a
 	call DisplayTextID
 	ld hl, wStatusFlags1
 	set BIT_GAVE_SAFFRON_GUARDS_DRINK, [hl]

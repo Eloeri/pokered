@@ -4,7 +4,7 @@ EvolveMon:
 	push bc
 	ld a, [wCurPartySpecies]
 	push af
-	ld a, [wd0b5]
+	ld a, [wCurSpecies]
 	push af
 	xor a
 	ld [wLowHealthAlarm], a
@@ -26,7 +26,7 @@ EvolveMon:
 	call EvolutionSetWholeScreenPalette
 	ld a, [wEvoNewSpecies]
 	ld [wCurPartySpecies], a
-	ld [wd0b5], a
+	ld [wCurSpecies], a
 	call Evolution_LoadPic
 	ld de, vFrontPic
 	ld hl, vBackPic
@@ -34,7 +34,7 @@ EvolveMon:
 	call CopyVideoData
 	ld a, [wEvoOldSpecies]
 	ld [wCurPartySpecies], a
-	ld [wd0b5], a
+	ld [wCurSpecies], a
 	call Evolution_LoadPic
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a
@@ -75,7 +75,7 @@ EvolveMon:
 	ld c, 0
 	call EvolutionSetWholeScreenPalette
 	pop af
-	ld [wd0b5], a
+	ld [wCurSpecies], a
 	pop af
 	ld [wCurPartySpecies], a
 	pop bc
@@ -145,7 +145,7 @@ Evolution_CheckForCancel:
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
 	pop bc
-	and B_BUTTON
+	and PAD_B
 	jr nz, .pressedB
 .notAllowedToCancel
 	dec c
