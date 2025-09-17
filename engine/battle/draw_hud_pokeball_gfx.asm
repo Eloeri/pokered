@@ -140,10 +140,10 @@ PlaceEnemyHUDTiles:
 	and a
 	jr z, .pokeBallHUD
 	ld a, [wEnemyMon]
-	ld [wd11e], a
+	ld [wPokeBallAnimData], a
 	predef IndexToPokedex
 	ld hl, wPokedexOwned
-	ld a, [wd11e]
+	ld a, [wPokeBallAnimData]
 	dec a
 	ld c, a
 	ld b, FLAG_TEST
