@@ -8,7 +8,9 @@ CeruleanPokecenter_TextPointers:
 	dw_const CeruleanPokecenterSuperNerdText,        TEXT_CERULEANPOKECENTER_SUPER_NERD
 	dw_const CeruleanPokecenterGentlemanText,        TEXT_CERULEANPOKECENTER_GENTLEMAN
 	dw_const CeruleanPokecenterLinkReceptionistText, TEXT_CERULEANPOKECENTER_LINK_RECEPTIONIST
-
+	dw_const MoveDeleterText1,                       TEXT_CERULEANPOKECENTER_MOVE_DELETER
+	dw_const MoveRelearnerText1,                     TEXT_CERULEANPOKECENTER_MOVE_RELEARNER
+	
 CeruleanPokecenterLinkReceptionistText:
 	script_cable_club_receptionist
 
