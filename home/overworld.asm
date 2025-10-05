@@ -12,7 +12,7 @@ EnterMap::
 	ld hl, wStatusFlags2
 	bit BIT_WILD_ENCOUNTER_COOLDOWN, [hl]
 	jr z, .skipGivingThreeStepsOfNoRandomBattles
-	ld a, 3 ; minimum number of steps between battles
+	ld a, 1 ; minimum number of steps between battles
 	ld [wNumberOfNoRandomBattleStepsLeft], a
 .skipGivingThreeStepsOfNoRandomBattles
 	ld hl, wStatusFlags4
