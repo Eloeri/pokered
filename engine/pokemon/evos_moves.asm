@@ -118,6 +118,12 @@ Evolution_PartyMonLoop: ; loop over party mons
 	ld [wCurEnemyLevel], a
 	ld a, 1
 	ld [wEvolutionOccurred], a
+	ld a, [wTempCoins1]
+	cp b
+	jp nc, .evoLevelRequirementSatisfied
+	ld a, b
+	ld [wTempCoins1], a
+.evoLevelRequirementSatisfied
 	push hl
 	ld a, [hl]
 	ld [wEvoNewSpecies], a
