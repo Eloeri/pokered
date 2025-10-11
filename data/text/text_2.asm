@@ -4,7 +4,7 @@ _AIBattleWithdrawText::
 	line "drew @"
 	text_ram wEnemyMonNick
 	text "!"
-	prompt
+	autodone
 
 _AIBattleUseItemText::
 	text_ram wTrainerName
@@ -15,7 +15,7 @@ _AIBattleUseItemText::
 	cont "on @"
 	text_ram wEnemyMonNick
 	text "!"
-	prompt
+	autodone
 
 _TradeWentToText::
 	text_ram wStringBuffer
@@ -838,7 +838,7 @@ _EnemyRanText::
 	text_ram wEnemyMonNick
 	text_start
 	line "ran!"
-	prompt
+	autodone
 
 _HurtByPoisonText::
 	text "<USER>'s"
@@ -860,7 +860,7 @@ _EnemyMonFaintedText::
 	text_ram wEnemyMonNick
 	text_start
 	line "fainted!"
-	prompt
+	autodone
 
 _MoneyForWinningText::
 	text "<PLAYER> got ¥@"
@@ -910,7 +910,7 @@ _TrainerAboutToUseText::
 	text_ram wTrainerName
 	text " is"
 	line "about to use"
-	cont "@"
+	scroll "@"
 	text_ram wEnemyMonNick
 	text "!"
 
@@ -924,7 +924,7 @@ _TrainerSentOutText::
 	line "out @"
 	text_ram wEnemyMonNick
 	text "!"
-	done
+	autodone
 
 _NoWillText::
 	text "There's no will"
@@ -939,51 +939,51 @@ _NoRunningText::
 	text "No! There's no"
 	line "running from a"
 	cont "trainer battle!"
-	prompt
+	autodone
 
 _GotAwayText::
 	text "Got away safely!"
-	prompt
+	autodone
 
 _ItemsCantBeUsedHereText::
 	text "Items can't be"
 	line "used here."
-	prompt
+	autodone
 
 _AlreadyOutText::
 	text_ram wBattleMonNick
 	text " is"
 	line "already out!"
-	prompt
+	autodone
 
 _MoveNoPPText::
 	text "No PP left for"
 	line "this move!"
-	prompt
+	autodone
 
 _MoveDisabledText::
 	text "The move is"
 	line "disabled!"
-	prompt
+	autodone
 
 _NoMovesLeftText::
 	text_ram wBattleMonNick
 	text " has no"
 	line "moves left!"
-	done
+	autodone
 
 _MultiHitText::
 	text "Hit the enemy"
 	line "@"
 	text_decimal wPlayerNumHits, 1, 1
 	text " times!"
-	prompt
+	autodone
 
 _ScaredText::
 	text_ram wBattleMonNick
 	text " is too"
 	line "scared to move!"
-	prompt
+	autodone
 
 _GetOutText::
 	text "GHOST: Get out..."
@@ -993,85 +993,85 @@ _GetOutText::
 _FastAsleepText::
 	text "<USER>"
 	line "is fast asleep!"
-	prompt
+	autodone
 
 _WokeUpText::
 	text "<USER>"
 	line "woke up!"
-	prompt
+	autodone
 
 _IsFrozenText::
 	text "<USER>"
 	line "is frozen solid!"
-	prompt
+	autodone
 
 _FullyParalyzedText::
 	text "<USER>'s"
 	line "fully paralyzed!"
-	prompt
+	autodone
 
 _FlinchedText::
 	text "<USER>"
 	line "flinched!"
-	prompt
+	autodone
 
 _MustRechargeText::
 	text "<USER>"
 	line "must recharge!"
-	prompt
+	autodone
 
 _DisabledNoMoreText::
 	text "<USER>'s"
 	line "disabled no more!"
-	prompt
+	autodone
 
 _IsConfusedText::
 	text "<USER>"
 	line "is confused!"
-	prompt
+	autodone
 
 _HurtItselfText::
 	text "It hurt itself in"
 	line "its confusion!"
-	prompt
+	autodone
 
 _ConfusedNoMoreText::
 	text "<USER>'s"
 	line "confused no more!"
-	prompt
+	autodone
 
 _SavingEnergyText::
 	text "<USER>"
 	line "is saving energy!"
-	prompt
+	autodone
 
 _UnleashedEnergyText::
 	text "<USER>"
 	line "unleashed energy!"
-	prompt
+	autodone
 
 _ThrashingAboutText::
 	text "<USER>'s"
 	line "thrashing about!"
-	done
+	autodone
 
 _AttackContinuesText::
 	text "<USER>'s"
 	line "attack continues!"
-	done
+	autodone
 
 _CantMoveText::
 	text "<USER>"
 	line "can't move!"
-	prompt
+	autodone
 
 _MoveIsDisabledText::
 	text "<USER>'s"
 	line "@"
 	text_ram wNameBuffer
 	text " is"
-	cont "disabled!"
-	prompt
+	scroll "disabled!"
+	autodone
 
 _MonName1Text::
 	text "<USER>@"
@@ -1236,7 +1236,7 @@ _WildMonAppearedText::
 	text_ram wEnemyMonNick
 	text_start
 	line "appeared!"
-	prompt
+	autodone
 
 _HookedMonAttackedText::
 	text "The hooked"
@@ -1244,30 +1244,30 @@ _HookedMonAttackedText::
 	text_ram wEnemyMonNick
 	text_start
 	cont "attacked!"
-	prompt
+	autodone
 
 _EnemyAppearedText::
 	text_ram wEnemyMonNick
 	text_start
 	line "appeared!"
-	prompt
+	autodone
 
 _TrainerWantsToFightText::
 	text_ram wTrainerName
 	text " wants"
 	line "to fight!"
-	prompt
+	autodone
 
 _UnveiledGhostText::
 	text "SILPH SCOPE"
 	line "unveiled the"
 	cont "GHOST's identity!"
-	prompt
+	autodone
 
 _GhostCantBeIDdText::
 	text "Darn! The GHOST"
 	line "can't be ID'd!"
-	prompt
+	autodone
 
 _GoText::
 	text "Go! @"
@@ -1316,26 +1316,26 @@ _ComeBackText::
 _SuperEffectiveText::
 	text "It's super"
 	line "effective!"
-	prompt
+	autodone
 
 _NotVeryEffectiveText::
 	text "It's not very"
 	line "effective..."
-	prompt
+	autodone
 
 _SafariZoneEatingText::
 	text "Wild @"
 	text_ram wEnemyMonNick
 	text_start
 	line "is eating!"
-	prompt
+	autodone
 
 _SafariZoneAngryText::
 	text "Wild @"
 	text_ram wEnemyMonNick
 	text_start
 	line "is angry!"
-	prompt
+	autodone
 
 ; money related
 _PickUpPayDayMoneyText::
