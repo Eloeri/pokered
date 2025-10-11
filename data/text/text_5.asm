@@ -44,33 +44,33 @@ _CannotUseTeleportNowText::
 	text_ram wNameBuffer
 	text " can't"
 	line "use TELEPORT now."
-	prompt
+	autodone
 
 _CannotFlyHereText::
 	text_ram wNameBuffer
 	text " can't"
 	line "FLY here."
-	prompt
+	autodone
 
 _NotHealthyEnoughText::
 	text "Not healthy"
 	line "enough."
-	prompt
+	autodone
 
 _NewBadgeRequiredText::
 	text "No! A new BADGE"
 	line "is required."
-	prompt
+	autodone
 
 _CannotUseItemsHereText::
 	text "You can't use items"
 	line "here."
-	prompt
+	autodone
 
 _CannotGetOffHereText::
 	text "You can't get off"
 	line "here."
-	prompt
+	autodone
 
 _GotMonText::
 	text "<PLAYER> got"
