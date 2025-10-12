@@ -1,7 +1,7 @@
 _FileDataDestroyedText::
 	text "The file data is"
 	line "destroyed!"
-	autodone
+	prompt
 
 _WouldYouLikeToSaveText::
 	text "Would you like to"
@@ -49,7 +49,7 @@ _StoppedEvolvingText::
 	text_ram wStringBuffer
 	text_start
 	line "stopped evolving!"
-	autodone
+	prompt
 
 _IsEvolvingText::
 	text "What? @"
@@ -61,37 +61,37 @@ _IsEvolvingText::
 _FellAsleepText::
 	text "<TARGET>"
 	line "fell asleep!"
-	autodone
+	prompt
 
 _AlreadyAsleepText::
 	text "<TARGET>'s"
 	line "already asleep!"
-	autodone
+	prompt
 
 _PoisonedText::
 	text "<TARGET>"
 	line "was poisoned!"
-	autodone
+	prompt
 
 _BadlyPoisonedText::
 	text "<TARGET>'s"
 	line "badly poisoned!"
-	autodone
+	prompt
 
 _BurnedText::
 	text "<TARGET>"
 	line "was burned!"
-	autodone
+	prompt
 
 _FrozenText::
 	text "<TARGET>"
 	line "was frozen solid!"
-	autodone
+	prompt
 
 _FireDefrostedText::
 	text "Fire defrosted"
 	line "<TARGET>!"
-	autodone
+	prompt
 
 _MonsStatsRoseText::
 	text "<USER>'s"
@@ -106,7 +106,7 @@ _GreatlyRoseText::
 
 _RoseText::
 	text " rose!"
-	autodone
+	prompt
 
 _MonsStatsFellText::
 	text "<TARGET>'s"
@@ -121,22 +121,22 @@ _GreatlyFellText::
 
 _FellText::
 	text " fell!"
-	autodone
+	prompt
 
 _RanFromBattleText::
 	text "<USER>"
 	line "ran from battle!"
-	autodone
+	prompt
 
 _RanAwayScaredText::
 	text "<TARGET>"
 	line "ran away scared!"
-	autodone
+	prompt
 
 _WasBlownAwayText::
 	text "<TARGET>"
 	line "was blown away!"
-	autodone
+	prompt
 
 _ChargeMoveEffectText::
 	text "<USER>@"
@@ -145,37 +145,37 @@ _ChargeMoveEffectText::
 _MadeWhirlwindText::
 	text_start
 	line "made a whirlwind!"
-	autodone
+	prompt
 
 _TookInSunlightText::
 	text_start
 	line "took in sunlight!"
-	autodone
+	prompt
 
 _LoweredItsHeadText::
 	text_start
 	line "lowered its head!"
-	autodone
+	prompt
 
 _SkyAttackGlowingText::
 	text_start
 	line "is glowing!"
-	autodone
+	prompt
 
 _FlewUpHighText::
 	text_start
 	line "flew up high!"
-	autodone
+	prompt
 
 _DugAHoleText::
 	text_start
 	line "dug a hole!"
-	autodone
+	prompt
 
 _BecameConfusedText::
 	text "<TARGET>"
 	line "became confused!"
-	autodone
+	prompt
 
 _MimicLearnedMoveText::
 	text "<USER>"
@@ -183,7 +183,7 @@ _MimicLearnedMoveText::
 	cont "@"
 	text_ram wNameBuffer
 	text "!"
-	autodone
+	prompt
 
 _MoveWasDisabledText::
 	text "<TARGET>'s"
@@ -191,85 +191,85 @@ _MoveWasDisabledText::
 	text_ram wNameBuffer
 	text " was"
 	cont "disabled!"
-	autodone
+	prompt
 
 _NothingHappenedText::
 	text "Nothing happened!"
-	autodone
+	prompt
 
 _NoEffectText::
 	text "No effect!"
-	autodone
+	prompt
 
 _ButItFailedText::
 	text "But, it failed! "
-	autodone
+	prompt
 
 _DidntAffectText::
 	text "It didn't affect"
 	line "<TARGET>!"
-	autodone
+	prompt
 
 _IsUnaffectedText::
 	text "<TARGET>"
 	line "is unaffected!"
-	autodone
+	prompt
 
 _ParalyzedMayNotAttackText::
 	text "<TARGET>'s"
 	line "paralyzed! It may"
 	cont "not attack!"
-	autodone
+	prompt
 
 _SubstituteText::
 	text "It created a"
 	line "SUBSTITUTE!"
-	autodone
+	prompt
 
 _HasSubstituteText::
 	text "<USER>"
 	line "has a SUBSTITUTE!"
-	autodone
+	prompt
 
 _TooWeakSubstituteText::
 	text "Too weak to make"
 	line "a SUBSTITUTE!"
-	autodone
+	prompt
 
 _CoinsScatteredText::
 	text "Coins scattered"
 	line "everywhere!"
-	autodone
+	prompt
 
 _GettingPumpedText::
 	text "<USER>'s"
 	line "getting pumped!"
-	autodone
+	prompt
 
 _WasSeededText::
 	text "<TARGET>"
 	line "was seeded!"
-	autodone
+	prompt
 
 _EvadedAttackText::
 	text "<TARGET>"
 	line "evaded attack!"
-	autodone
+	prompt
 
 _HitWithRecoilText::
 	text "<USER>'s"
 	line "hit with recoil!"
-	autodone
+	prompt
 
 _ConvertedTypeText::
 	text "Converted type to"
 	line "<TARGET>'s!"
-	autodone
+	prompt
 
 _StatusChangesEliminatedText::
 	text "All STATUS changes"
 	line "are eliminated!"
-	autodone
+	prompt
 
 _StartedSleepingEffect::
 	text "<USER>"
@@ -285,7 +285,7 @@ _FellAsleepBecameHealthyText::
 _RegainedHealthText::
 	text "<USER>"
 	line "regained health!"
-	autodone
+	prompt
 
 _TransformedText::
 	text "<USER>"
@@ -293,33 +293,33 @@ _TransformedText::
 	cont "@"
 	text_ram wNameBuffer
 	text "!"
-	autodone
+	prompt
 
 _LightScreenProtectedText::
 	text "<USER>'s"
 	line "protected against"
 	cont "special attacks!"
-	autodone
+	prompt
 
 _ReflectGainedArmorText::
 	text "<USER>"
 	line "gained armor!"
-	autodone
+	prompt
 
 _ShroudedInMistText::
 	text "<USER>'s"
 	line "shrouded in mist!"
-	autodone
+	prompt
 
 _SuckedHealthText::
 	text "Sucked health from"
 	line "<TARGET>!"
-	autodone
+	prompt
 
 _DreamWasEatenText::
 	text "<TARGET>'s"
 	line "dream was eaten!"
-	autodone
+	prompt
 
 _TradeCenterOpponentText::
 	text "!"
