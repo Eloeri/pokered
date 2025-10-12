@@ -13,9 +13,9 @@ _PlayerBlackedOutText::
 	text "<PLAYER> is out of"
 	line "useable #MON!"
 
-	para "<PLAYER> blacked"
+	autopara "<PLAYER> blacked"
 	line "out!"
-	prompt
+	autodone
 
 _RepelWoreOffText::
 	text "REPEL's effect"
@@ -43,12 +43,12 @@ _PokemartBoughtItemText::
 _PokemartNotEnoughMoneyText::
 	text "You don't have"
 	line "enough money."
-	prompt
+	autodone
 
 _PokemartItemBagFullText::
 	text "You can't carry"
 	line "any more items."
-	prompt
+	autodone
 
 _PokemonSellingGreetingText::
 	text "What would you"
@@ -65,7 +65,7 @@ _PokemartTellSellPriceText::
 _PokemartItemBagEmptyText::
 	text "You don't have"
 	line "anything to sell."
-	prompt
+	autodone
 
 _PokemartUnsellableItemText::
 	text "I can't put a"
