@@ -831,7 +831,7 @@ _WildRanText::
 	text_ram wEnemyMonNick
 	text_start
 	line "ran!"
-	autodone
+	prompt
 
 _EnemyRanText::
 	text "Enemy @"
@@ -843,17 +843,17 @@ _EnemyRanText::
 _HurtByPoisonText::
 	text "<USER>'s"
 	line "hurt by poison!"
-	autodone
+	prompt
 
 _HurtByBurnText::
 	text "<USER>'s"
 	line "hurt by the burn!"
-	autodone
+	prompt
 
 _HurtByLeechSeedText::
 	text "LEECH SEED saps"
 	line "<USER>!"
-	autodone
+	prompt
 
 _EnemyMonFaintedText::
 	text "Enemy @"
@@ -880,7 +880,7 @@ _PlayerMonFaintedText::
 	text_ram wBattleMonNick
 	text_start
 	line "fainted!"
-	autodone
+	prompt
 
 _UseNextMonText::
 	text "Use next #MON?"
@@ -897,7 +897,7 @@ _PlayerBlackedOutText2::
 
 	para "<PLAYER> blacked"
 	line "out!"
-	autodone
+	prompt
 
 _LinkBattleLostText::
 	text "<PLAYER> lost to"
@@ -929,11 +929,11 @@ _TrainerSentOutText::
 _NoWillText::
 	text "There's no will"
 	line "to fight!"
-	autodone
+	prompt
 
 _CantEscapeText::
 	text "Can't escape!"
-	autodone
+	prompt
 
 _NoRunningText::
 	text "No! There's no"
@@ -1119,88 +1119,88 @@ _ExclamationPoint5Text::
 _AttackMissedText::
 	text "<USER>'s"
 	line "attack missed!"
-	autodone
+	prompt
 
 _KeptGoingAndCrashedText::
 	text "<USER>"
 	line "kept going and"
 	cont "crashed!"
-	autodone
+	prompt
 
 _UnaffectedText::
 	text "<TARGET>'s"
 	line "unaffected!"
-	autodone
+	prompt
 
 _DoesntAffectMonText::
 	text "It doesn't affect"
 	line "<TARGET>!"
-	autodone
+	prompt
 
 _CriticalHitText::
 	text "Critical hit!"
-	autodone
+	prompt
 
 _OHKOText::
 	text "One-hit KO!"
-	autodone
+	prompt
 
 _LoafingAroundText::
 	text_ram wBattleMonNick
 	text " is"
 	line "loafing around."
-	autodone
+	prompt
 
 _BeganToNapText::
 	text_ram wBattleMonNick
 	text " began"
 	line "to nap!"
-	autodone
+	prompt
 
 _WontObeyText::
 	text_ram wBattleMonNick
 	text " won't"
 	line "obey!"
-	autodone
+	prompt
 
 _TurnedAwayText::
 	text_ram wBattleMonNick
 	text " turned"
 	line "away!"
-	autodone
+	prompt
 
 _IgnoredOrdersText::
 	text_ram wBattleMonNick
 	text_start
 	line "ignored orders!"
-	autodone
+	prompt
 
 _SubstituteTookDamageText::
 	text "The SUBSTITUTE"
 	line "took damage for"
 	cont "<TARGET>!"
-	autodone
+	prompt
 
 _SubstituteBrokeText::
 	text "<TARGET>'s"
 	line "SUBSTITUTE broke!"
-	autodone
+	prompt
 
 _BuildingRageText::
 	text "<USER>'s"
 	line "RAGE is building!"
-	autodone
+	prompt
 
 _MirrorMoveFailedText::
 	text "The MIRROR MOVE"
 	next "failed!"
-	autodone
+	prompt
 
 _HitXTimesText::
 	text "Hit @"
 	text_decimal wEnemyNumHits, 1, 1
 	text " times!"
-	autodone
+	prompt
 
 _GainedText::
 	text_ram wNameBuffer
@@ -1448,7 +1448,7 @@ _AccessedBillsPCText::
 
 	para "Accessed #MON"
 	line "Storage System."
-	autodone
+	prompt
 
 _AccessedSomeonesPCText::
 	text "Accessed someone's"
@@ -1456,14 +1456,14 @@ _AccessedSomeonesPCText::
 
 	para "Accessed #MON"
 	line "Storage System."
-	autodone
+	prompt
 
 _AccessedMyPCText::
 	text "Accessed my PC."
 
 	para "Accessed Item"
 	line "Storage System."
-	autodone
+	prompt
 
 _TurnedOnPC2Text::
 	text "<PLAYER> turned on"
