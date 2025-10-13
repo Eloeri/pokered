@@ -84,7 +84,7 @@ PlaceNextChar::
 
 ; Check against a dictionary
 	dict "<NULL>",    NullChar
-	dict "<SCROLL>",  _ContTextPauseShort
+	dict "<SCROLL>",  _ContTextNoPause
 	dict "<_CONT>",   _ContText
 	dict "<PARA>",    Paragraph
 	dict "<PAGE>",    PageChar
@@ -103,8 +103,6 @@ PlaceNextChar::
 	dict "<DEXEND>",  PlaceDexEnd
 	dict "<TARGET>",  PlaceMoveTargetsName
 	dict "<USER>",    PlaceMoveUsersName
-	dict "<ATPRA>",   AutoParagraph
-    dict "<ATDNE>",   AutoDoneText
 
 	ld [hli], a
 	call PrintLetterDelay
@@ -220,12 +218,6 @@ PromptText::
 	ld a, " "
 	ldcoord_a 18, 16
 
-AutoDoneText::
-	call ProtectedDelay3
-	ld c, 20
-	call DelayFrames
-	jr DoneText
-
 DoneText::
 	pop hl
 	ld de, .stop
@@ -248,20 +240,6 @@ Paragraph::
 	call DelayFrames
 	pop de
 	hlcoord 1, 14
-	jp NextChar
-
-AutoParagraph::
-	push de
-	call ProtectedDelay3
-	ld c, 10
-	call DelayFrames
-	hlcoord 1, 13
-	lb bc, 4, 18
-	call ClearScreenArea
-	ld c, 20
-	call DelayFrames
-	hlcoord 1, 13
-	pop de
 	jp NextChar
 
 PageChar::
@@ -295,16 +273,6 @@ _ContTextNoPause::
 	call ScrollTextUpOneLine
 	call ScrollTextUpOneLine
 	hlcoord 1, 16
-	pop de
-	jp NextChar
-
-_ContTextPauseShort::
-	push de
-	call ScrollTextUpOneLine
-	call ScrollTextUpOneLine
-	hlcoord 1, 16
-	ld c, 5
-	call DelayFrames
 	pop de
 	jp NextChar
 
