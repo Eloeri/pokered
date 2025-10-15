@@ -43,12 +43,12 @@ _PokemartBoughtItemText::
 _PokemartNotEnoughMoneyText::
 	text "You don't have"
 	line "enough money."
-	autodone
+	prompt
 
 _PokemartItemBagFullText::
 	text "You can't carry"
 	line "any more items."
-	autodone
+	prompt
 
 _PokemonSellingGreetingText::
 	text "What would you"
@@ -65,7 +65,7 @@ _PokemartTellSellPriceText::
 _PokemartItemBagEmptyText::
 	text "You don't have"
 	line "anything to sell."
-	autodone
+	prompt
 
 _PokemartUnsellableItemText::
 	text "I can't put a"

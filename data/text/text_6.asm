@@ -120,12 +120,12 @@ _ItemfinderFoundItemText::
 	text "Yes! ITEMFINDER"
 	line "indicates there's"
 	cont "an item nearby."
-	autodone
+	prompt
 
 _ItemfinderFoundNothingText::
 	text "Nope! ITEMFINDER"
 	line "isn't responding."
-	autodone
+	prompt
 
 _RaisePPWhichTechniqueText::
 	text "Raise PP of which"
@@ -147,19 +147,19 @@ _PPIncreasedText::
 	text_ram wStringBuffer
 	text "'s PP"
 	line "increased."
-	autodone
+	prompt
 
 _PPRestoredText::
 	text "PP was restored."
-	autodone
+	prompt
 
 _BootedUpTMText::
 	text "Booted up a TM!"
-	autodone
+	prompt
 
 _BootedUpHMText::
 	text "Booted up an HM!"
-	autodone
+	prompt
 
 _TeachMachineMoveText::
 	text "It contained"
@@ -185,7 +185,7 @@ _MonCannotLearnMachineMoveText::
 	line "@"
 	text_ram wStringBuffer
 	text "."
-	autodone
+	prompt
 
 _ItemUseNotTimeText::
 	text "OAK: <PLAYER>!"

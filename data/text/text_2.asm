@@ -1256,7 +1256,7 @@ _TrainerWantsToFightText::
 	text_ram wTrainerName
 	text " wants"
 	line "to fight!"
-	autodone
+	prompt
 
 _UnveiledGhostText::
 	text "SILPH SCOPE"
@@ -1267,7 +1267,7 @@ _UnveiledGhostText::
 _GhostCantBeIDdText::
 	text "Darn! The GHOST"
 	line "can't be ID'd!"
-	autodone
+	prompt
 
 _GoText::
 	text "Go! @"
@@ -1391,43 +1391,43 @@ _AntidoteText::
 	text_ram wNameBuffer
 	text " was"
 	line "cured of poison!"
-	autodone
+	prompt
 
 _ParlyzHealText::
 	text_ram wNameBuffer
 	text "'s"
 	line "rid of paralysis!"
-	autodone
+	prompt
 
 _BurnHealText::
 	text_ram wNameBuffer
 	text "'s"
 	line "burn was healed!"
-	autodone
+	prompt
 
 _IceHealText::
 	text_ram wNameBuffer
 	text " was"
 	line "defrosted!"
-	autodone
+	prompt
 
 _AwakeningText::
 	text_ram wNameBuffer
 	text_start
 	line "woke up!"
-	autodone
+	prompt
 
 _FullHealText::
 	text_ram wNameBuffer
 	text "'s"
 	line "health returned!"
-	autodone
+	prompt
 
 _ReviveText::
 	text_ram wNameBuffer
 	text_start
 	line "is revitalized!"
-	autodone
+	prompt
 
 _RareCandyText::
 	text_ram wNameBuffer
@@ -1488,17 +1488,17 @@ _ItemWasStoredText::
 	text_ram wNameBuffer
 	text " was"
 	line "stored via PC."
-	autodone
+	prompt
 
 _NothingToDepositText::
 	text "You have nothing"
 	line "to deposit."
-	autodone
+	prompt
 
 _NoRoomToStoreText::
 	text "No room left to"
 	line "store items."
-	autodone
+	prompt
 
 _WhatToWithdrawText::
 	text "What do you want"
@@ -1514,17 +1514,17 @@ _WithdrewItemText::
 	line "@"
 	text_ram wNameBuffer
 	text "."
-	autodone
+	prompt
 
 _NothingStoredText::
 	text "There is nothing"
 	line "stored."
-	autodone
+	prompt
 
 _CantCarryMoreText::
 	text "You can't carry"
 	line "any more items."
-	autodone
+	prompt
 
 _WhatToTossText::
 	text "What do you want"
@@ -1562,17 +1562,17 @@ _MonWasStoredText::
 	line "stored in Box @"
 	text_ram wBoxNumString
 	text "."
-	autodone
+	prompt
 
 _CantDepositLastMonText::
 	text "You can't deposit"
 	line "the last #MON!"
-	autodone
+	prompt
 
 _BoxFullText::
 	text "Oops! This Box is"
 	line "full of #MON."
-	autodone
+	prompt
 
 _MonIsTakenOutText::
 	text_ram wStringBuffer
@@ -1581,12 +1581,12 @@ _MonIsTakenOutText::
 	scroll "Got @"
 	text_ram wStringBuffer
 	text "."
-	autodone
+	prompt
 
 _NoMonText::
 	text "What? There are"
 	line "no #MON here!"
-	autodone
+	prompt
 
 _CantTakeMonText::
 	text "You can't take"
@@ -1594,7 +1594,7 @@ _CantTakeMonText::
 
 	autopara "Deposit #MON"
 	line "first."
-	autodone
+	prompt
 
 _ReleaseWhichMonText::
 	text "Release which"
@@ -1616,7 +1616,7 @@ _MonWasReleasedText::
 	scroll "Bye @"
 	text_ram wStringBuffer
 	text "!"
-	autodone
+	prompt
 
 _RequireCoinCaseText::
 	text "A COIN CASE is"

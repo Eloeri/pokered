@@ -49,7 +49,7 @@ _StoppedEvolvingText::
 	text_ram wStringBuffer
 	text_start
 	line "stopped evolving!"
-	autodone
+	prompt
 
 _IsEvolvingText::
 	text "What? @"
