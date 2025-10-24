@@ -356,6 +356,7 @@ INCLUDE "engine/movie/evolution.asm"
 INCLUDE "engine/overworld/elevator.asm"
 INCLUDE "engine/items/tm_prices.asm"
 
-SECTION "Engine Spillover", ROMX
+SECTION "Engine Spillover 1", ROMX
 
+INCLUDE "engine/overworld/field_moves.asm"
 INCLUDE "engine/menus/item_descriptions.asm"
