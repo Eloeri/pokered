@@ -177,8 +177,8 @@ DisplayListMenuIDLoop::
 	jp nz, ExitListMenu ; if so, exit the menu
 	bit B_PAD_SELECT, a
 	jp nz, HandleItemListSwapping ; if so, allow the player to swap menu entries
-	bit 3,a ; was the start button pressed?
-	jp nz,.sortItems ; if so, allow the player to swap menu entries
+	bit B_PAD_START, a
+	jp nz, SortItems
 	ld b, a
 	bit B_PAD_DOWN, b
 	ld hl, wListScrollOffset
