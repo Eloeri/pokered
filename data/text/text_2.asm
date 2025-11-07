@@ -910,7 +910,7 @@ _TrainerAboutToUseText::
 	text_ram wTrainerName
 	text " is"
 	line "about to use"
-	scroll "@"
+	para "@"
 	text_ram wEnemyMonNick
 	text "!"
 
@@ -1256,7 +1256,7 @@ _TrainerWantsToFightText::
 	text_ram wTrainerName
 	text " wants"
 	line "to fight!"
-	prompt
+	autodone
 
 _UnveiledGhostText::
 	text "SILPH SCOPE"
@@ -1578,7 +1578,7 @@ _MonIsTakenOutText::
 	text_ram wStringBuffer
 	text " is"
 	line "taken out."
-	scroll "Got @"
+	para "Got @"
 	text_ram wStringBuffer
 	text "."
 	prompt
@@ -1613,7 +1613,7 @@ _MonWasReleasedText::
 	text_ram wStringBuffer
 	text " was"
 	line "released outside."
-	scroll "Bye @"
+	para "Bye @"
 	text_ram wStringBuffer
 	text "!"
 	prompt

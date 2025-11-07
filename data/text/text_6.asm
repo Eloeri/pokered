@@ -167,7 +167,7 @@ _TeachMachineMoveText::
 	text_ram wStringBuffer
 	text "!"
 
-	scroll "Teach @"
+	para "Teach @"
 	text_ram wStringBuffer
 	text_start
 	line "to a #MON?"
@@ -177,7 +177,7 @@ _MonCannotLearnMachineMoveText::
 	text_ram wNameBuffer
 	text " is not"
 	line "compatible with"
-	scroll "@"
+	para "@"
 	text_ram wStringBuffer
 	text "."
 
