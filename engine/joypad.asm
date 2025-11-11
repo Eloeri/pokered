@@ -6,6 +6,29 @@ _Joypad::
 	cp PAD_BUTTONS ; soft reset
 	jp z, TrySoftReset
 
+	; --- Turbo A/B ---
+	ld b, a
+	ld a, [wFontLoaded]
+	bit 1, a
+	jr z, .noTurbo
+
+	ld a, [rDIV]
+	bit 4, a
+	jr z, .noTurbo
+
+	ld a, b
+	bit B_PAD_A, a
+	jr z, .checkBTurbo
+	xor PAD_A
+.checkBTurbo:
+	bit B_PAD_B, a
+	jr z, .doneTurbo
+	xor PAD_B
+	jr .doneTurbo
+.noTurbo:
+	ld a, b
+.doneTurbo:
+
 	ld b, a
 	ldh a, [hJoyLast]
 	ld e, a
